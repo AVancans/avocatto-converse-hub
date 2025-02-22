@@ -1,5 +1,4 @@
-
-import { ArrowRight, Bot, Cloud, Server } from "lucide-react";
+import { ArrowRight, Bot, Cloud, Server, Users, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Prism from 'prismjs';
 import { useEffect } from 'react';
@@ -96,6 +95,46 @@ async function runAgentTask(message: string): Promise<string> {
 }`}
                 </code>
               </pre>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 slide-up">
+          <div className="rounded-2xl blur-card p-8 text-left hover:bg-white/5 transition-colors">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-full bg-primary/20">
+                <Users className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Collaborate</h3>
+            </div>
+            <p className="text-muted-foreground mb-6">
+              Work together like never before. Build and deploy AI agents across your team or developer community with built-in version control and collaboration tools.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Version Control", "Team Management", "Shared Resources", "Real-time Updates"].map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full text-sm bg-white/10 text-white/80">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl blur-card p-8 text-left hover:bg-white/5 transition-colors">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-full bg-primary/20">
+                <GitBranch className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Explore AI Agents</h3>
+            </div>
+            <p className="text-muted-foreground mb-6">
+              Access a vast library of pre-built AI agents. Fork, customize, and deploy agents for your specific use cases with just a few clicks.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Agent Marketplace", "Custom Templates", "One-Click Deploy", "Instant Integration"].map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full text-sm bg-white/10 text-white/80">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>
