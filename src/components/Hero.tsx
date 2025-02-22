@@ -1,8 +1,16 @@
 
 import { ArrowRight, Bot, Cloud, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Prism from 'prismjs';
+import { useEffect } from 'react';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const Hero = () => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-0" />
@@ -49,16 +57,19 @@ const Hero = () => {
 
         <div className="mt-16 slide-up">
           <div className="text-left rounded-lg blur-card p-6 overflow-hidden">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <div className="flex flex-col">
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 backdrop-blur-sm p-3 -mx-6 -mt-6 mb-4 border-b border-white/10">
+                <div className="flex items-center justify-between">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">example.ts</p>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">example.ts</p>
-            </div>
-            <pre className="text-sm overflow-x-auto">
-              <code className="language-typescript text-white">
+              <pre className="!bg-transparent text-sm overflow-x-auto">
+                <code className="language-typescript">
 {`import { openai } from "@ai-sdk/openai";
 import { generateText } from "ai";
 import { Pica } from "@picahq/ai";
@@ -80,8 +91,9 @@ async function runAgentTask(message: string): Promise<string> {
 
   return text;
 }`}
-              </code>
-            </pre>
+                </code>
+              </pre>
+            </div>
           </div>
         </div>
       </div>
