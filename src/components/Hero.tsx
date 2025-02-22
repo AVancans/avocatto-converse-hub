@@ -17,13 +17,13 @@ const Hero = () => {
       
       <div className="max-w-4xl mx-auto text-center z-10">
         <div className="space-y-2 fade-in">
-          <p className="text-foreground inline-block px-4 py-1.5 rounded-lg text-sm font-medium mb-4 blur-card">
+          <p className="text-primary inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 blur-card">
             AI-Powered Voice Conversations
           </p>
           <h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
             Fleet-Ready Conversation
           </h1>
-          <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Simplify the integration, deployment, and version control of AI agent-powered conversational voice capabilities across your edge fleet.
           </p>
         </div>
@@ -58,14 +58,14 @@ const Hero = () => {
         <div className="mt-16 slide-up">
           <div className="text-left rounded-lg blur-card p-6 overflow-hidden">
             <div className="flex flex-col">
-              <div className="bg-primary/20 backdrop-blur-sm p-3 -mx-6 -mt-6 mb-4 border-b border-black">
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 backdrop-blur-sm p-3 -mx-6 -mt-6 mb-4 border-b border-white/10">
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <p className="text-sm text-foreground">example.ts</p>
+                  <p className="text-sm text-muted-foreground">example.ts</p>
                 </div>
               </div>
               <pre className="!bg-transparent text-sm overflow-x-auto">
