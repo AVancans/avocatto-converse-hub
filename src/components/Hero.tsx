@@ -56,18 +56,21 @@ const Hero = () => {
         </div>
 
         <div className="mt-16 slide-up">
-          <div className="text-left rounded-lg blur-card p-6 overflow-hidden">
-            <div className="flex flex-col">
-              <div className="bg-gradient-to-r from-primary/20 to-primary/5 backdrop-blur-sm p-3 -mx-6 -mt-6 mb-4 border-b border-white/10">
+          <div className="text-left rounded-xl overflow-hidden blur-card">
+            <div className="bg-gradient-to-r from-[#FEC6A1] via-[#FFDEE2] to-[#FEF7CD] p-3 relative backdrop-blur-md border-b border-white/20">
+              <div className="relative z-10">
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <p className="text-sm text-muted-foreground">example.ts</p>
+                  <p className="text-sm text-zinc-800 font-medium">example.ts</p>
                 </div>
               </div>
+              <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
+            </div>
+            <div className="p-6">
               <pre className="!bg-transparent text-sm overflow-x-auto">
                 <code className="language-typescript">
 {`import { openai } from "@ai-sdk/openai";
