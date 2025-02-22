@@ -4,6 +4,7 @@ import Prism from 'prismjs';
 import { useEffect } from 'react';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/themes/prism-tomorrow.css';
+import DeploymentFlow from "./DeploymentFlow";
 
 const Hero = () => {
   useEffect(() => {
@@ -55,48 +56,8 @@ const Hero = () => {
         </div>
 
         <div className="mt-16 slide-up">
-          <div className="text-left rounded-xl overflow-hidden blur-card">
-            <div className="bg-gradient-to-r from-[#574b96] via-[#3d3163] to-[#2a2245] p-3 relative backdrop-blur-md border-b border-white/20">
-              <div className="relative z-10">
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  </div>
-                  <p className="text-sm text-white/90 font-medium">example.ts</p>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
-            </div>
-            <div className="p-6">
-              <pre className="!bg-transparent text-sm overflow-x-auto">
-                <code className="language-typescript">
-{`import { openai } from "@ai-sdk/openai";
-import { generateText } from "ai";
-import { Pica } from "@picahq/ai";
-import * as dotenv from "dotenv";
-dotenv.config();
-
-const pica = new Pica(process.env.PICA_SECRET_KEY!);
-
-async function runAgentTask(message: string): Promise<string> {
-  const system = await pica.generateSystemPrompt();
-
-  const { text } = await generateText({
-    model: openai("gpt-4o"),
-    system,
-    prompt: message,
-    tools: { ...pica.oneTool },
-    maxSteps: 10,
-  });
-
-  return text;
-}`}
-                </code>
-              </pre>
-            </div>
-          </div>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">Visualize Your Deployment Flow</h2>
+          <DeploymentFlow />
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 slide-up">
