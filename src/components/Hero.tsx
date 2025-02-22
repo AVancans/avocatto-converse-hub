@@ -46,6 +46,44 @@ const Hero = () => {
             description="Keep your AI conversations in sync with robust version control"
           />
         </div>
+
+        <div className="mt-16 slide-up">
+          <div className="text-left rounded-lg blur-card p-6 overflow-hidden">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <p className="text-sm text-muted-foreground">example.ts</p>
+            </div>
+            <pre className="text-sm overflow-x-auto">
+              <code className="language-typescript text-white">
+{`import { openai } from "@ai-sdk/openai";
+import { generateText } from "ai";
+import { Pica } from "@picahq/ai";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+const pica = new Pica(process.env.PICA_SECRET_KEY!);
+
+async function runAgentTask(message: string): Promise<string> {
+  const system = await pica.generateSystemPrompt();
+
+  const { text } = await generateText({
+    model: openai("gpt-4o"),
+    system,
+    prompt: message,
+    tools: { ...pica.oneTool },
+    maxSteps: 10,
+  });
+
+  return text;
+}`}
+              </code>
+            </pre>
+          </div>
+        </div>
       </div>
     </section>
   );
