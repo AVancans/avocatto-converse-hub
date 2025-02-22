@@ -57,7 +57,7 @@ const Hero = () => {
 
         <div className="mt-16 slide-up">
           <div className="text-left rounded-xl overflow-hidden blur-card">
-            <div className="bg-gradient-to-r from-[#FEC6A1] via-[#FFDEE2] to-[#FEF7CD] p-3 relative backdrop-blur-md border-b border-white/20">
+            <div className="bg-gradient-to-r from-[#9b87f5] via-[#7E69AB] to-[#6E59A5] p-3 relative backdrop-blur-md border-b border-white/20">
               <div className="relative z-10">
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-2">
@@ -65,10 +65,10 @@ const Hero = () => {
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <p className="text-sm text-zinc-800 font-medium">example.ts</p>
+                  <p className="text-sm text-white/90 font-medium">example.ts</p>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
+              <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
             </div>
             <div className="p-6">
               <pre className="!bg-transparent text-sm overflow-x-auto">
