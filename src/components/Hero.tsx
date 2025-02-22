@@ -57,7 +57,7 @@ const Hero = () => {
 
         <div className="mt-16 slide-up">
           <div className="text-left rounded-xl overflow-hidden blur-card">
-            <div className="bg-gradient-to-r from-[#9b87f5] via-[#7E69AB] to-[#6E59A5] p-3 relative backdrop-blur-md border-b border-white/20">
+            <div className="bg-gradient-to-r from-[#574b96] via-[#3d3163] to-[#2a2245] p-3 relative backdrop-blur-md border-b border-white/20">
               <div className="relative z-10">
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-2">
