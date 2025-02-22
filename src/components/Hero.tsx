@@ -29,10 +29,10 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in slide-up">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 solid-shadow-button">
+          <Button size="lg" className="bg-primary hover:bg-primary/90">
             Get Started <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button size="lg" variant="outline" className="solid-shadow-button-outline">
+          <Button size="lg" variant="outline">
             View Documentation
           </Button>
         </div>

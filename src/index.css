@@ -75,13 +75,6 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.blur-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Override Prism.js styles */
@@ -94,25 +87,4 @@ pre[class*="language-"] {
 code[class*="language-"] {
   text-shadow: none !important;
   background: transparent !important;
-}
-
-/* Custom button styles */
-.solid-shadow-button {
-  box-shadow: 4px 4px 0 hsl(var(--primary));
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.solid-shadow-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 hsl(var(--primary));
-}
-
-.solid-shadow-button-outline {
-  box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.solid-shadow-button-outline:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.2);
 }
