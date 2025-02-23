@@ -9,7 +9,7 @@ const Index = () => {
       <Header />
       <div className="pt-32">
         <Hero />
-        <FleetManagement />
+        
       </div>
     </main>
   );

@@ -231,7 +231,7 @@ export default function DeploymentFlow() {
   };
 
   return (
-    <div className="w-full h-[400px] rounded-xl overflow-hidden blur-card">
+    <div className="w-full h-[400px] rounded-xl overflow-hidden blur-card ">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -243,7 +243,7 @@ export default function DeploymentFlow() {
         className="bg-background/50"
       >
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} color="#6366f1" />
-        <Controls className="!bg-background/50" />
+        {/* <Controls className="blur-card" /> */}
       </ReactFlow>
     </div>
   );

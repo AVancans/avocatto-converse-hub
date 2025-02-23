@@ -28,25 +28,25 @@ const getStatusColor = (status: StatusType) => {
 const sampleData: FleetDevice[] = [
   {
     id: "1",
-    name: "Edge-01",
-    agent: "Voice Assistant v2.1",
-    location: "San Francisco, CA",
+    name: "Robot-001",
+    agent: "barista-v1.2",
+    location: "Tokyo, JP",
     tags: ["production", "voice"],
     status: "active",
   },
   {
     id: "2",
-    name: "Edge-02",
-    agent: "Voice Assistant v2.0",
+    name: "Robot-002",
+    agent: "barista-v1.1",
     location: "New York, NY",
     tags: ["staging", "voice"],
     status: "deploying",
   },
   {
     id: "3",
-    name: "Edge-03",
-    agent: "Voice Assistant v2.1",
-    location: "Austin, TX",
+    name: "Robot-003",
+    agent: "barista-v1.1-beta",
+    location: "London, UK",
     tags: ["development"],
     status: "failure",
   },
@@ -54,10 +54,11 @@ const sampleData: FleetDevice[] = [
 
 const FleetManagement = () => {
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6">Fleet Management</h2>
-      <div className="animate-float rounded-2xl border border-white/10 bg-background/40 backdrop-blur-sm transform perspective-1500 rotate-x-10">
-        <div className="w-full rounded-2xl overflow-hidden">
+    <div className="p-6" >
+
+
+      <div className="animate-float rounded-2xl border border-white/10 bg-background/40  transform perspective-1500 rotate-x-10">
+        <div className="w-full rounded-2xl overflow-hidden backdrop-blur-lg ">
           <table className="w-full">
             <thead>
               <tr className="border-b bg-muted/50">

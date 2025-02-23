@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/themes/prism-tomorrow.css';
 import DeploymentFlow from "./DeploymentFlow";
+import FleetManagement from "./FleetManagement";
 
 const Hero = () => {
   useEffect(() => {
@@ -18,17 +19,17 @@ const Hero = () => {
       <div className="max-w-4xl mx-auto text-center z-10">
         <div className="space-y-2 fade-in">
           <p className="text-primary inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 blur-card">
-            AI-Powered Voice Conversations
+            Conversational Edge Agents at Scale 
           </p>
           <h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-            Fleet-Ready Conversation
+            Fleet-ready conversational AI 
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Simplify the integration, deployment, and version control of AI agent-powered conversational voice capabilities across your edge fleet.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in slide-up">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in slide-up">
           <Button size="lg" className="bg-primary hover:bg-primary/90">
             Get Started <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
@@ -37,7 +38,10 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 slide-up">
+
+        <FleetManagement />
+        
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 slide-up">
           <FeatureCard 
             icon={<Bot className="h-6 w-6 text-primary" />}
             title="AI Agent Integration"
@@ -51,7 +55,7 @@ const Hero = () => {
           <FeatureCard 
             icon={<Cloud className="h-6 w-6 text-primary" />}
             title="Version Control"
-            description="Keep your AI conversations in sync with robust version control"
+            description="Rollback, fork and AB-test versions across your fleet"
           />
         </div>
 
