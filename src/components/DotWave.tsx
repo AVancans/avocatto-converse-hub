@@ -42,16 +42,15 @@ const DotWave = () => {
       time += 0.015;
 
       dots.forEach((dot) => {
-        // Calculate wave effect with multiple waves for more complexity
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-        const distX = dot.x - centerX;
-        const distY = dot.y - centerY;
+        // Calculate wave effect with waves coming from left to right
+        const waveOriginX = -canvas.width * 0.5; // Start wave from outside left
+        const distX = dot.x - waveOriginX;
+        const distY = dot.y - (canvas.height * 0.5);
         const distance = Math.sqrt(distX * distX + distY * distY);
         
-        // Create multiple overlapping waves
-        const wave1 = Math.sin(distance * 0.02 - time) * 3;
-        const wave2 = Math.cos(distance * 0.015 - time * 1.2) * 2;
+        // Create diagonal wave pattern
+        const wave1 = Math.sin(distance * 0.02 - time + dot.x * 0.01) * 3;
+        const wave2 = Math.cos(distance * 0.015 - time * 1.2 + dot.x * 0.008) * 2;
         const combinedWave = (wave1 + wave2) * 0.5;
         
         // Calculate Z position for 3D effect
@@ -102,4 +101,3 @@ const DotWave = () => {
 };
 
 export default DotWave;
-
