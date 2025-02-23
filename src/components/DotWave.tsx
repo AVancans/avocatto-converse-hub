@@ -42,15 +42,16 @@ const DotWave = () => {
       time += 0.015;
 
       dots.forEach((dot) => {
-        // Calculate wave effect with waves coming from left to right
-        const waveOriginX = -canvas.width * 0.5; // Start wave from outside left
+        // Set wave origin to top-left outside the canvas
+        const waveOriginX = -canvas.width * 0.3;
+        const waveOriginY = -canvas.height * 0.3;
         const distX = dot.x - waveOriginX;
-        const distY = dot.y - (canvas.height * 0.5);
+        const distY = dot.y - waveOriginY;
         const distance = Math.sqrt(distX * distX + distY * distY);
         
-        // Create diagonal wave pattern
-        const wave1 = Math.sin(distance * 0.02 - time + dot.x * 0.01) * 3;
-        const wave2 = Math.cos(distance * 0.015 - time * 1.2 + dot.x * 0.008) * 2;
+        // Create diagonal wave pattern with adjusted frequencies
+        const wave1 = Math.sin(distance * 0.02 - time + (dot.x + dot.y) * 0.01) * 3;
+        const wave2 = Math.cos(distance * 0.015 - time * 1.2 + (dot.x + dot.y) * 0.008) * 2;
         const combinedWave = (wave1 + wave2) * 0.5;
         
         // Calculate Z position for 3D effect
