@@ -2,7 +2,6 @@
 import { useCallback } from 'react';
 import {
   ReactFlow,
-  MiniMap,
   Controls,
   Background,
   useNodesState,
@@ -68,9 +67,8 @@ export default function DeploymentFlow() {
         fitView
         className="bg-background/50"
       >
-        <Background color="#6366f1" variant="dots" />
+        <Background variant="lines" color="#6366f1" />
         <Controls className="!bg-background/50" />
-        <MiniMap className="!bg-background/50" />
       </ReactFlow>
     </div>
   );
