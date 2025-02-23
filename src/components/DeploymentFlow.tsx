@@ -27,7 +27,6 @@ const initialNodes: Node[] = [
       color: '#fff',
       fontSize: '14px',
       fontWeight: 500,
-      boxShadow: '0 4px 6px -1px rgba(155, 135, 245, 0.1), 0 2px 4px -1px rgba(155, 135, 245, 0.06)',
     }
   },
   {
@@ -43,7 +42,6 @@ const initialNodes: Node[] = [
       color: '#fff',
       fontSize: '14px',
       fontWeight: 500,
-      boxShadow: '0 4px 6px -1px rgba(155, 135, 245, 0.1), 0 2px 4px -1px rgba(155, 135, 245, 0.06)',
     }
   },
   {
@@ -59,7 +57,6 @@ const initialNodes: Node[] = [
       color: '#fff',
       fontSize: '14px',
       fontWeight: 500,
-      boxShadow: '0 4px 6px -1px rgba(155, 135, 245, 0.1), 0 2px 4px -1px rgba(155, 135, 245, 0.06)',
     }
   },
   {
@@ -76,7 +73,6 @@ const initialNodes: Node[] = [
       color: '#fff',
       fontSize: '14px',
       fontWeight: 500,
-      boxShadow: '0 4px 6px -1px rgba(155, 135, 245, 0.1), 0 2px 4px -1px rgba(155, 135, 245, 0.06)',
     }
   },
 ];
@@ -161,7 +157,7 @@ export default function DeploymentFlow() {
         fitView
         className="bg-background/50"
       >
-        <Background variant="dots" color="#6366f1" />
+        <Background variant="lines" color="#6366f1" />
         <Controls className="!bg-background/50" />
       </ReactFlow>
     </div>
