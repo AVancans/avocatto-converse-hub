@@ -56,54 +56,50 @@ const FleetManagement = () => {
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-6">Fleet Management</h2>
-      <div className="relative transform perspective-1000 rotate-x-2 rotate-y-1">
-        <div className="rounded-xl border bg-[#F1F0FB] shadow-lg backdrop-blur-sm 
-          transition-all duration-300 hover:rotate-x-0 hover:rotate-y-0 
-          hover:shadow-xl relative">
-          <div className="overflow-hidden rounded-xl">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b bg-white/50 backdrop-blur-sm">
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Edge Device</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Agent</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Location</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Tags</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sampleData.map((device) => (
-                  <tr key={device.id} className="border-b transition-colors hover:bg-white/50">
-                    <td className="p-4 align-middle">{device.name}</td>
-                    <td className="p-4 align-middle">{device.agent}</td>
-                    <td className="p-4 align-middle">{device.location}</td>
-                    <td className="p-4 align-middle">
-                      <div className="flex flex-wrap gap-1">
-                        {device.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="inline-block px-2 py-1 text-xs rounded-full bg-secondary text-secondary-foreground shadow-sm"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="p-4 align-middle">
-                      <div className="flex items-center gap-2">
+      <div className="rounded-lg border bg-card">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b bg-muted/50">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Edge Device</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Agent</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Location</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Tags</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sampleData.map((device) => (
+                <tr key={device.id} className="border-b transition-colors hover:bg-muted/50">
+                  <td className="p-4 align-middle">{device.name}</td>
+                  <td className="p-4 align-middle">{device.agent}</td>
+                  <td className="p-4 align-middle">{device.location}</td>
+                  <td className="p-4 align-middle">
+                    <div className="flex flex-wrap gap-1">
+                      {device.tags.map((tag) => (
                         <span
-                          className={`h-2 w-2 rounded-full shadow-sm ${getStatusColor(
-                            device.status
-                          )}`}
-                        />
-                        <span className="capitalize">{device.status}</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                          key={tag}
+                          className="inline-block px-2 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </td>
+                  <td className="p-4 align-middle">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`h-2 w-2 rounded-full ${getStatusColor(
+                          device.status
+                        )}`}
+                      />
+                      <span className="capitalize">{device.status}</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -111,4 +107,3 @@ const FleetManagement = () => {
 };
 
 export default FleetManagement;
-
