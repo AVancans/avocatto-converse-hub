@@ -1,4 +1,3 @@
-
 import { useCallback, useState } from 'react';
 import {
   ReactFlow,
@@ -203,7 +202,7 @@ export default function DeploymentFlow() {
       animated: true,
       style: { 
         strokeWidth: 1.5,
-        stroke: '#f5879b', // Changed color for US connections
+        stroke: '#f5879b',
         strokeDasharray: '5,5',
         opacity: 0.5,
       }
