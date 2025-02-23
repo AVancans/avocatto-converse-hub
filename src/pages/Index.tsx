@@ -6,7 +6,9 @@ const Index = () => {
   return (
     <main className="bg-background min-h-screen">
       <Header />
-      <Hero />
+      <div className="pt-24">
+        <Hero />
+      </div>
     </main>
   );
 };

@@ -8,11 +8,11 @@ const Header = () => {
       <div className="mx-auto w-full max-w-7xl">
         <div className="relative">
           {/* Animated gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30 animate-gradient overflow-hidden blur-[100px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30 animate-gradient overflow-hidden blur-[100px] rounded-full" />
           
           {/* Glossy container */}
-          <div className="relative mx-4 my-4 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg">
-            <nav className="flex items-center justify-between px-4 py-4">
+          <div className="relative mx-4 my-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg">
+            <nav className="flex items-center justify-between px-8 py-4">
               {/* Logo/Brand */}
               <div className="flex items-center">
                 <h1 className="text-xl font-semibold gradient-text">Brand</h1>
