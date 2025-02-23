@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,10 +38,12 @@
 
 .perspective-1000 {
   perspective: 1000px;
+  perspective-origin: center top;
 }
 
 .perspective-1500 {
   perspective: 1500px;
+  perspective-origin: center top;
 }
 
 .rotate-x-1 {
@@ -53,20 +54,25 @@
   transform: rotateX(3deg);
 }
 
+.rotate-x-10 {
+  transform: rotateX(10deg);
+}
+
 @keyframes float {
   0% {
-    transform: rotateX(3deg) translateY(0px);
+    transform: rotateX(10deg) translateY(0px) translateZ(0px);
   }
   50% {
-    transform: rotateX(5deg) translateY(-10px);
+    transform: rotateX(15deg) translateY(-10px) translateZ(20px);
   }
   100% {
-    transform: rotateX(3deg) translateY(0px);
+    transform: rotateX(10deg) translateY(0px) translateZ(0px);
   }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
 .fade-in {
