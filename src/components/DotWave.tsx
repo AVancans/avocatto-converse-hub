@@ -49,9 +49,9 @@ const DotWave = () => {
         const distY = dot.y - waveOriginY;
         const distance = Math.sqrt(distX * distX + distY * distY);
         
-        // Create diagonal wave pattern with adjusted frequencies
-        const wave1 = Math.sin(distance * 0.02 - time + (dot.x + dot.y) * 0.01) * 3;
-        const wave2 = Math.cos(distance * 0.015 - time * 1.2 + (dot.x + dot.y) * 0.008) * 2;
+        // Create diagonal wave pattern with reduced frequencies for wider waves
+        const wave1 = Math.sin(distance * 0.01 - time + (dot.x + dot.y) * 0.005) * 3;
+        const wave2 = Math.cos(distance * 0.008 - time * 1.2 + (dot.x + dot.y) * 0.004) * 2;
         const combinedWave = (wave1 + wave2) * 0.5;
         
         // Calculate Z position for 3D effect
@@ -102,3 +102,4 @@ const DotWave = () => {
 };
 
 export default DotWave;
+
