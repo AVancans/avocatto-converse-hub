@@ -56,7 +56,7 @@ const FleetManagement = () => {
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-6">Fleet Management</h2>
-      <div className="rounded-2xl border border-white/10 bg-background/40 backdrop-blur-sm">
+      <div className="animate-float rounded-2xl border border-white/10 bg-background/40 backdrop-blur-sm transform perspective-1000 rotate-x-1">
         <div className="w-full rounded-2xl overflow-hidden">
           <table className="w-full">
             <thead>
