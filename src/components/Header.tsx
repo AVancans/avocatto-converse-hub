@@ -12,7 +12,7 @@ const Header = () => {
           
           {/* Glossy container */}
           <div className="relative mx-4 my-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg">
-            <nav className="flex items-center justify-between px-8 py-4">
+            <nav className="flex items-center justify-between px-10 py-5">
               {/* Logo/Brand */}
               <div className="flex items-center">
                 <h1 className="text-xl font-semibold gradient-text">Brand</h1>
