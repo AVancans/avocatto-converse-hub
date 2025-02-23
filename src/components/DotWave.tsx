@@ -13,8 +13,11 @@ const DotWave = () => {
 
     // Set canvas size
     const setCanvasSize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const rect = canvas.parentElement?.getBoundingClientRect();
+      if (rect) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
     };
 
     setCanvasSize();
@@ -22,8 +25,8 @@ const DotWave = () => {
 
     // Dot properties
     const dots: { x: number; y: number }[] = [];
-    const spacing = 30;
-    const dotRadius = 1.5;
+    const spacing = 20; // Reduced spacing for more dots
+    const dotRadius = 2; // Slightly larger dots
 
     // Create dot grid
     for (let x = spacing; x < canvas.width - spacing; x += spacing) {
@@ -35,7 +38,7 @@ const DotWave = () => {
     let time = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      time += 0.02;
+      time += 0.01; // Slowed down animation
 
       dots.forEach((dot) => {
         // Calculate wave effect
@@ -43,13 +46,13 @@ const DotWave = () => {
         const distY = dot.y - canvas.height / 2;
         const distance = Math.sqrt(distX * distX + distY * distY);
         
-        const wave = Math.sin(distance * 0.05 - time) * 2;
+        const wave = Math.sin(distance * 0.03 - time) * 2;
         const opacity = Math.abs(wave) * 0.5;
 
         // Draw dot with dynamic opacity
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dotRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(155, 135, 245, ${0.2 + opacity})`;
+        ctx.fillStyle = `rgba(155, 135, 245, ${0.3 + opacity})`; // Increased base opacity
         ctx.fill();
       });
 

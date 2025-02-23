@@ -9,9 +9,9 @@ const Header = () => {
       <div className="mx-auto w-full max-w-7xl">
         <div className="relative">
           {/* Background container with dot wave */}
-          <div className="absolute inset-0 overflow-hidden rounded-full">
+          <div className="absolute inset-0 overflow-hidden rounded-full bg-background/5">
             <DotWave />
-            <div className="absolute inset-0 bg-background/60 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-background/40 backdrop-blur-sm" /> {/* Reduced blur and opacity */}
           </div>
           
           {/* Content */}
