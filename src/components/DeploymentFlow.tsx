@@ -195,7 +195,7 @@ export default function DeploymentFlow() {
         opacity: 0.5,
       }
     })),
-    // Connect Version Control to all US nodes
+    // Connect Version Control to all US nodes with different color
     ...Array.from({ length: 3 }, (_, i) => ({
       id: `e-vc-us-${i + 1}`,
       source: 'version-control',
@@ -203,7 +203,7 @@ export default function DeploymentFlow() {
       animated: true,
       style: { 
         strokeWidth: 1.5,
-        stroke: '#9b87f5',
+        stroke: '#f5879b', // Changed color for US connections
         strokeDasharray: '5,5',
         opacity: 0.5,
       }
