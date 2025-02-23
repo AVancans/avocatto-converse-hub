@@ -21,14 +21,18 @@ const DotWave = () => {
     window.addEventListener("resize", setCanvasSize);
 
     // Dot properties
-    const dots: { x: number; y: number }[] = [];
+    const dots: { x: number; y: number; shouldLight?: boolean }[] = [];
     const spacing = 15; // Even smaller spacing for more dots
     const dotRadius = 1; // Smaller dots
 
-    // Create dot grid
+    // Create dot grid with random lighting flags
     for (let x = 0; x < canvas.width + spacing; x += spacing) {
       for (let y = 0; y < canvas.height + spacing; y += spacing) {
-        dots.push({ x, y });
+        dots.push({ 
+          x, 
+          y, 
+          shouldLight: Math.random() < 0.2 // 20% chance for a dot to be marked for lighting up
+        });
       }
     }
 
@@ -59,25 +63,19 @@ const DotWave = () => {
         const waveOpacity = Math.abs(zPos) * 0.15;
         const opacity = Math.min(baseOpacity + waveOpacity, 0.8);
 
-        // Calculate color based on wave height
-        // Use warm colors (yellow/orange) for peaks
-        let dotColor;
+        // Default purple color
+        let dotColor = `rgba(135, 115, 225, ${opacity})`;
+        
+        // Only light up marked dots when they're at peaks
         const waveHeight = Math.abs(combinedWave);
-        if (waveHeight > 2) {
-          // Use bright orange for highest peaks
-          dotColor = `rgba(249, 115, 22, ${opacity})`; // Bright orange
-        } else if (waveHeight > 1.5) {
-          // Use soft orange for medium peaks
-          dotColor = `rgba(254, 198, 161, ${opacity})`; // Soft orange
-        } else if (waveHeight > 1) {
-          // Use soft yellow for small peaks
-          dotColor = `rgba(254, 247, 205, ${opacity})`; // Soft yellow
-        } else {
-          // Use default purple for lower areas
-          dotColor = `rgba(135, 115, 225, ${opacity})`;
+        if (dot.shouldLight && waveHeight > 2) {
+          // Randomly choose between bright orange and soft yellow for peak dots
+          dotColor = Math.random() < 0.5 
+            ? `rgba(249, 115, 22, ${opacity})` // Bright orange
+            : `rgba(254, 247, 205, ${opacity})`; // Soft yellow
         }
 
-        // Draw dot with perspective and dynamic color
+        // Draw dot with perspective and color
         ctx.beginPath();
         ctx.arc(
           dot.x + (zPos * distX * 0.01), 
