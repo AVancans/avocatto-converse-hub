@@ -6,16 +6,10 @@ import DotWave from "./DotWave";
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
+      <DotWave />
       <div className="mx-auto w-full max-w-7xl">
         <div className="relative">
-          {/* Background container with dot wave */}
-          <div className="absolute inset-0 overflow-hidden rounded-full bg-background/5">
-            <DotWave />
-            <div className="absolute inset-0 bg-background/40 backdrop-blur-sm" /> {/* Reduced blur and opacity */}
-          </div>
-          
-          {/* Content */}
-          <div className="relative mx-4 my-4 rounded-full border border-white/10">
+          <div className="relative mx-4 my-4 rounded-full border border-white/10 bg-background/40 backdrop-blur-sm">
             <nav className="flex items-center justify-between px-8 py-4">
               {/* Logo/Brand */}
               <div className="flex items-center">

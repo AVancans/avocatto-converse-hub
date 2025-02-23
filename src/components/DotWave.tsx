@@ -11,13 +11,10 @@ const DotWave = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Set canvas size
+    // Set canvas size to window size
     const setCanvasSize = () => {
-      const rect = canvas.parentElement?.getBoundingClientRect();
-      if (rect) {
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-      }
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
 
     setCanvasSize();
@@ -25,12 +22,12 @@ const DotWave = () => {
 
     // Dot properties
     const dots: { x: number; y: number }[] = [];
-    const spacing = 20; // Reduced spacing for more dots
-    const dotRadius = 2; // Slightly larger dots
+    const spacing = 15; // Even smaller spacing for more dots
+    const dotRadius = 1; // Smaller dots
 
     // Create dot grid
-    for (let x = spacing; x < canvas.width - spacing; x += spacing) {
-      for (let y = spacing; y < canvas.height - spacing; y += spacing) {
+    for (let x = 0; x < canvas.width + spacing; x += spacing) {
+      for (let y = 0; y < canvas.height + spacing; y += spacing) {
         dots.push({ x, y });
       }
     }
@@ -38,21 +35,40 @@ const DotWave = () => {
     let time = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      time += 0.01; // Slowed down animation
+      time += 0.015;
 
       dots.forEach((dot) => {
-        // Calculate wave effect
-        const distX = dot.x - canvas.width / 2;
-        const distY = dot.y - canvas.height / 2;
+        // Calculate wave effect with multiple waves for more complexity
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const distX = dot.x - centerX;
+        const distY = dot.y - centerY;
         const distance = Math.sqrt(distX * distX + distY * distY);
         
-        const wave = Math.sin(distance * 0.03 - time) * 2;
-        const opacity = Math.abs(wave) * 0.5;
+        // Create multiple overlapping waves
+        const wave1 = Math.sin(distance * 0.02 - time) * 3;
+        const wave2 = Math.cos(distance * 0.015 - time * 1.2) * 2;
+        const combinedWave = (wave1 + wave2) * 0.5;
+        
+        // Calculate Z position for 3D effect
+        const zPos = combinedWave * 0.5;
+        const perspective = 1 + (zPos * 0.1);
+        
+        // Adjust opacity based on z-position
+        const baseOpacity = 0.2;
+        const waveOpacity = Math.abs(zPos) * 0.15;
+        const opacity = Math.min(baseOpacity + waveOpacity, 0.8);
 
-        // Draw dot with dynamic opacity
+        // Draw dot with perspective and dynamic opacity
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, dotRadius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(155, 135, 245, ${0.3 + opacity})`; // Increased base opacity
+        ctx.arc(
+          dot.x + (zPos * distX * 0.01), 
+          dot.y + (zPos * distY * 0.01), 
+          dotRadius * perspective,
+          0,
+          Math.PI * 2
+        );
+        ctx.fillStyle = `rgba(155, 135, 245, ${opacity})`;
         ctx.fill();
       });
 
@@ -66,7 +82,7 @@ const DotWave = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full" />;
 };
 
 export default DotWave;
