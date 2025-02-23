@@ -59,7 +59,7 @@ const DotWave = () => {
         const waveOpacity = Math.abs(zPos) * 0.15;
         const opacity = Math.min(baseOpacity + waveOpacity, 0.8);
 
-        // Draw dot with perspective and dynamic opacity
+        // Draw dot with perspective and dynamic opacity - using darker purple (135, 115, 225)
         ctx.beginPath();
         ctx.arc(
           dot.x + (zPos * distX * 0.01), 
@@ -68,7 +68,7 @@ const DotWave = () => {
           0,
           Math.PI * 2
         );
-        ctx.fillStyle = `rgba(155, 135, 245, ${opacity})`;
+        ctx.fillStyle = `rgba(135, 115, 225, ${opacity})`;
         ctx.fill();
       });
 
