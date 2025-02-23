@@ -107,7 +107,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="w-full mt-24">
+      <div className="mt-24">
         <LogoSlider />
       </div>
     </section>

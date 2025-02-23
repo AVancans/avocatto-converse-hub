@@ -5,7 +5,7 @@ const LogoSlider = () => {
   const logos = [
     {
       name: 'PicaOS',
-      url: 'https://raw.githubusercontent.com/picaos-demo/picaos/main/public/favicon.ico'
+      url: 'https://www.picaos.com/logo-dark.svg'
     },
     {
       name: 'Fal.ai',
@@ -13,7 +13,7 @@ const LogoSlider = () => {
     },
     {
       name: 'ElevenLabs',
-      url: 'https://elevenlabs.io/icons/favicon.ico'
+      url: 'https://160.wpcdnnode.com/ziptone.nl/wp-content/uploads/2025/01/schermafbeelding-2025-01-31-om-08.09.33.png'
     },
     {
       name: 'OpenAI',
@@ -21,11 +21,11 @@ const LogoSlider = () => {
     },
     {
       name: 'Supabase',
-      url: 'https://supabase.com/favicon.ico'
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaGuEvKyulxQleVBNdece3AoTlMKVECfhnng&s'
     },
     {
       name: 'Replicate',
-      url: 'https://replicate.com/favicon.ico'
+      url: 'https://cdn.sanity.io/images/50q6fr1p/production/2542fad4ab944c0f5e1ab7507a3333a2d5f7f464-2626x684.png?auto=format'
     }
   ];
 
@@ -36,12 +36,12 @@ const LogoSlider = () => {
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={index}
-              className="flex items-center justify-center h-12 w-32 blur-card rounded-lg"
+              className="flex items-center justify-center h-16  w-52 blur-card rounded-lg"
             >
               <img
                 src={logo.url}
                 alt={`${logo.name} logo`}
-                className="h-8 w-8 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                className="h-8 w-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
               />
             </div>
           ))}
