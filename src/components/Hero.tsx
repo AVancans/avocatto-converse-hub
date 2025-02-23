@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bot, Cloud, Server, Users, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Prism from 'prismjs';
@@ -6,6 +7,7 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/themes/prism-tomorrow.css';
 import DeploymentFlow from "./DeploymentFlow";
 import FleetManagement from "./FleetManagement";
+import LogoSlider from "./LogoSlider";
 
 const Hero = () => {
   useEffect(() => {
@@ -103,6 +105,10 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="w-full mt-24">
+        <LogoSlider />
       </div>
     </section>
   );
