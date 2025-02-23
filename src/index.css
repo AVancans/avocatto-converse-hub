@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,19 +41,27 @@
   perspective: 1000px;
 }
 
+.perspective-1500 {
+  perspective: 1500px;
+}
+
 .rotate-x-1 {
   transform: rotateX(1deg);
 }
 
+.rotate-x-3 {
+  transform: rotateX(3deg);
+}
+
 @keyframes float {
   0% {
-    transform: rotateX(1deg) translateY(0px);
+    transform: rotateX(3deg) translateY(0px);
   }
   50% {
-    transform: rotateX(2deg) translateY(-10px);
+    transform: rotateX(5deg) translateY(-10px);
   }
   100% {
-    transform: rotateX(1deg) translateY(0px);
+    transform: rotateX(3deg) translateY(0px);
   }
 }
 
