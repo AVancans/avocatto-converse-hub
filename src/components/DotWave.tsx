@@ -59,7 +59,25 @@ const DotWave = () => {
         const waveOpacity = Math.abs(zPos) * 0.15;
         const opacity = Math.min(baseOpacity + waveOpacity, 0.8);
 
-        // Draw dot with perspective and dynamic opacity - using darker purple (135, 115, 225)
+        // Calculate color based on wave height
+        // Use warm colors (yellow/orange) for peaks
+        let dotColor;
+        const waveHeight = Math.abs(combinedWave);
+        if (waveHeight > 2) {
+          // Use bright orange for highest peaks
+          dotColor = `rgba(249, 115, 22, ${opacity})`; // Bright orange
+        } else if (waveHeight > 1.5) {
+          // Use soft orange for medium peaks
+          dotColor = `rgba(254, 198, 161, ${opacity})`; // Soft orange
+        } else if (waveHeight > 1) {
+          // Use soft yellow for small peaks
+          dotColor = `rgba(254, 247, 205, ${opacity})`; // Soft yellow
+        } else {
+          // Use default purple for lower areas
+          dotColor = `rgba(135, 115, 225, ${opacity})`;
+        }
+
+        // Draw dot with perspective and dynamic color
         ctx.beginPath();
         ctx.arc(
           dot.x + (zPos * distX * 0.01), 
@@ -68,7 +86,7 @@ const DotWave = () => {
           0,
           Math.PI * 2
         );
-        ctx.fillStyle = `rgba(135, 115, 225, ${opacity})`;
+        ctx.fillStyle = dotColor;
         ctx.fill();
       });
 
@@ -86,3 +104,4 @@ const DotWave = () => {
 };
 
 export default DotWave;
+
