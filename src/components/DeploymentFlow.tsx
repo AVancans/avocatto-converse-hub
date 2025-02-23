@@ -157,7 +157,7 @@ export default function DeploymentFlow() {
         fitView
         className="bg-background/50"
       >
-        <Background variant="lines" color="#6366f1" />
+        <Background variant="dots" color="#6366f1" />
         <Controls className="!bg-background/50" />
       </ReactFlow>
     </div>
