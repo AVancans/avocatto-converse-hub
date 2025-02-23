@@ -14,10 +14,9 @@ import '@xyflow/react/dist/style.css';
 
 const initialNodes: Node[] = [
   {
-    id: '1',
-    type: 'input',
-    data: { label: 'Development' },
-    position: { x: 0, y: 50 },
+    id: 'elevenlabs',
+    data: { label: 'ElevenLabs' },
+    position: { x: 0, y: 0 },
     className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
     style: {
       background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
@@ -30,9 +29,54 @@ const initialNodes: Node[] = [
     }
   },
   {
-    id: '2',
+    id: 'openai',
+    data: { label: 'OpenAI' },
+    position: { x: 0, y: 100 },
+    className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
+    style: {
+      background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: '12px',
+      padding: '16px',
+      color: '#fff',
+      fontSize: '14px',
+      fontWeight: 500,
+    }
+  },
+  {
+    id: 'fal',
+    data: { label: 'Fal' },
+    position: { x: 0, y: 200 },
+    className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
+    style: {
+      background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: '12px',
+      padding: '16px',
+      color: '#fff',
+      fontSize: '14px',
+      fontWeight: 500,
+    }
+  },
+  {
+    id: 'pica',
+    data: { label: 'Pica' },
+    position: { x: 0, y: 300 },
+    className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
+    style: {
+      background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: '12px',
+      padding: '16px',
+      color: '#fff',
+      fontSize: '14px',
+      fontWeight: 500,
+    }
+  },
+  {
+    id: 'version-control',
     data: { label: 'Version Control' },
-    position: { x: 200, y: 0 },
+    position: { x: 200, y: 150 },
     className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
     style: {
       background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
@@ -44,10 +88,11 @@ const initialNodes: Node[] = [
       fontWeight: 500,
     }
   },
-  {
-    id: '3',
-    data: { label: 'Staging' },
-    position: { x: 200, y: 100 },
+  // EU nodes
+  ...Array.from({ length: 6 }, (_, i) => ({
+    id: `eu-${i + 1}`,
+    data: { label: `EU ${i + 1}` },
+    position: { x: 400, y: i * 80 },
     className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
     style: {
       background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
@@ -58,12 +103,12 @@ const initialNodes: Node[] = [
       fontSize: '14px',
       fontWeight: 500,
     }
-  },
-  {
-    id: '4',
-    type: 'output',
-    data: { label: 'Fleet Deployment' },
-    position: { x: 400, y: 50 },
+  })),
+  // US nodes
+  ...Array.from({ length: 3 }, (_, i) => ({
+    id: `us-${i + 1}`,
+    data: { label: `US ${i + 1}` },
+    position: { x: 600, y: i * 80 + 160 },
     className: 'blur-card !bg-background/50 border border-[#9b87f5]/20',
     style: {
       background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.1) 0%, rgba(155, 135, 245, 0.02) 100%)',
@@ -74,26 +119,15 @@ const initialNodes: Node[] = [
       fontSize: '14px',
       fontWeight: 500,
     }
-  },
+  })),
 ];
 
 const initialEdges: Edge[] = [
+  // Connect ElevenLabs, Fal, and Pica to Version Control
   { 
-    id: 'e1-2', 
-    source: '1', 
-    target: '2', 
-    animated: true, 
-    style: { 
-      strokeWidth: 1.5,
-      stroke: '#9b87f5',
-      strokeDasharray: '5,5',
-      opacity: 0.5,
-    }
-  },
-  { 
-    id: 'e1-3', 
-    source: '1', 
-    target: '3', 
+    id: 'e-elevenlabs-vc', 
+    source: 'elevenlabs', 
+    target: 'version-control',
     animated: true,
     style: { 
       strokeWidth: 1.5,
@@ -103,9 +137,9 @@ const initialEdges: Edge[] = [
     }
   },
   { 
-    id: 'e2-4', 
-    source: '2', 
-    target: '4', 
+    id: 'e-fal-vc', 
+    source: 'fal', 
+    target: 'version-control',
     animated: true,
     style: { 
       strokeWidth: 1.5,
@@ -115,9 +149,9 @@ const initialEdges: Edge[] = [
     }
   },
   { 
-    id: 'e3-4', 
-    source: '3', 
-    target: '4', 
+    id: 'e-pica-vc', 
+    source: 'pica', 
+    target: 'version-control',
     animated: true,
     style: { 
       strokeWidth: 1.5,
@@ -126,6 +160,32 @@ const initialEdges: Edge[] = [
       opacity: 0.5,
     }
   },
+  // Connect Version Control to all EU nodes
+  ...Array.from({ length: 6 }, (_, i) => ({
+    id: `e-vc-eu-${i + 1}`,
+    source: 'version-control',
+    target: `eu-${i + 1}`,
+    animated: true,
+    style: { 
+      strokeWidth: 1.5,
+      stroke: '#9b87f5',
+      strokeDasharray: '5,5',
+      opacity: 0.5,
+    }
+  })),
+  // Connect Version Control to all US nodes
+  ...Array.from({ length: 3 }, (_, i) => ({
+    id: `e-vc-us-${i + 1}`,
+    source: 'version-control',
+    target: `us-${i + 1}`,
+    animated: true,
+    style: { 
+      strokeWidth: 1.5,
+      stroke: '#9b87f5',
+      strokeDasharray: '5,5',
+      opacity: 0.5,
+    }
+  })),
 ];
 
 export default function DeploymentFlow() {
@@ -157,7 +217,7 @@ export default function DeploymentFlow() {
         fitView
         className="bg-background/50"
       >
-        <Background variant="dots" color="#6366f1" />
+        <Background pattern="dots" color="#6366f1" />
         <Controls className="!bg-background/50" />
       </ReactFlow>
     </div>
