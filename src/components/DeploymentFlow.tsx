@@ -10,6 +10,7 @@ import {
   Node,
   Edge,
   BackgroundVariant,
+  Position,
 } from '@xyflow/react';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
@@ -53,7 +54,9 @@ export default function DeploymentFlow() {
         color: '#fff',
         fontSize: '14px',
         fontWeight: 500,
-      }
+      },
+      sourcePosition: Position.Right,
+      targetPosition: Position.Left,
     },
     {
       id: 'fal',
@@ -68,7 +71,8 @@ export default function DeploymentFlow() {
         color: '#fff',
         fontSize: '14px',
         fontWeight: 500,
-      }
+      },
+      sourcePosition: Position.Right,
     },
     {
       id: 'pica',
@@ -83,7 +87,8 @@ export default function DeploymentFlow() {
         color: '#fff',
         fontSize: '14px',
         fontWeight: 500,
-      }
+      },
+      sourcePosition: Position.Right,
     },
     {
       id: 'version-control',
@@ -98,7 +103,9 @@ export default function DeploymentFlow() {
         color: '#fff',
         fontSize: '14px',
         fontWeight: 500,
-      }
+      },
+      sourcePosition: Position.Right,
+      targetPosition: Position.Left,
     },
     // EU nodes
     ...Array.from({ length: 6 }, (_, i) => ({
@@ -114,7 +121,8 @@ export default function DeploymentFlow() {
         color: '#fff',
         fontSize: '14px',
         fontWeight: 500,
-      }
+      },
+      targetPosition: Position.Left,
     })),
     // US nodes
     ...Array.from({ length: 3 }, (_, i) => ({
@@ -130,16 +138,17 @@ export default function DeploymentFlow() {
         color: '#fff',
         fontSize: '14px',
         fontWeight: 500,
-      }
+      },
+      targetPosition: Position.Left,
     })),
   ];
 
   const initialEdges: Edge[] = [
-    // Connect Fal and Pica to AI Service node
+    // Connect Fal and Pica to Version Control
     { 
-      id: 'e-fal-ai', 
+      id: 'e-fal-vc', 
       source: 'fal', 
-      target: 'ai-service',
+      target: 'version-control',
       animated: true,
       style: { 
         strokeWidth: 1.5,
@@ -149,9 +158,9 @@ export default function DeploymentFlow() {
       }
     },
     { 
-      id: 'e-pica-ai', 
+      id: 'e-pica-vc', 
       source: 'pica', 
-      target: 'ai-service',
+      target: 'version-control',
       animated: true,
       style: { 
         strokeWidth: 1.5,
