@@ -1,10 +1,11 @@
+
 import { ArrowRight, Bot, Cloud, Server, Users, GitBranch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Prism from 'prismjs';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/themes/prism-tomorrow.css';
-import DeploymentFlow from "./DeploymentFlow";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   useEffect(() => {
@@ -38,26 +39,21 @@ const Hero = () => {
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 slide-up">
-          <FeatureCard 
+          <Card3D 
             icon={<Bot className="h-6 w-6 text-primary" />}
             title="AI Agent Integration"
             description="Seamlessly integrate conversational AI agents into your applications"
           />
-          <FeatureCard 
+          <Card3D 
             icon={<Server className="h-6 w-6 text-primary" />}
             title="Fleet Management"
             description="Deploy and manage voice capabilities across your entire fleet"
           />
-          <FeatureCard 
+          <Card3D 
             icon={<Cloud className="h-6 w-6 text-primary" />}
             title="Version Control"
             description="Keep your AI conversations in sync with robust version control"
           />
-        </div>
-
-        <div className="mt-16 slide-up">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Visualize Your Deployment Flow</h2>
-          <DeploymentFlow />
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 slide-up">
@@ -104,16 +100,58 @@ const Hero = () => {
   );
 };
 
-const FeatureCard = ({ icon, title, description }: { 
+const Card3D = ({ icon, title, description }: { 
   icon: React.ReactNode;
   title: string;
   description: string;
 }) => {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isHovered) return;
+    
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+    
+    setRotation({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotation({ x: 0, y: 0 });
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
   return (
-    <div className="p-6 rounded-xl blur-card hover:bg-white/10 transition-colors">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
+    <div
+      className={cn(
+        "p-6 rounded-xl blur-card transition-all duration-300",
+        "hover:bg-white/10 hover:shadow-lg hover:shadow-primary/20",
+        "transform-gpu perspective-1000"
+      )}
+      style={{
+        transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+        transformStyle: 'preserve-3d',
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+    >
+      <div className="mb-4 transform-gpu translate-z-20" style={{ transform: 'translateZ(20px)' }}>{icon}</div>
+      <h3 className="text-lg font-semibold mb-2 transform-gpu translate-z-20" style={{ transform: 'translateZ(20px)' }}>{title}</h3>
+      <p className="text-muted-foreground transform-gpu translate-z-20" style={{ transform: 'translateZ(20px)' }}>{description}</p>
     </div>
   );
 };
